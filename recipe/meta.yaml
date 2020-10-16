@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.1.1" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/pypeit/PypeIt/archive/{{ version }}.tar.gz
-  sha256: 9264c904e098c40c44e815d34d594305862a4c4fd0001c3ed81d24f706960ebf
+  sha256: b22e2d940caa1813a9fec9efa9c7c9f0e57d07643a987a574fbf597e89c5ef3b
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
-  skip: True  # [py<37 or win]
+  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [py<37 or win]
 
 requirements:
   build:
@@ -59,7 +59,7 @@ about:
   license_file:
     - LICENSE.rst
     - licenses/PYDL_LICENSE.rst
-  summary: 'The Python Spectroscopic Data Reduction Pipeline.'
+  summary: The Python Spectroscopic Data Reduction Pipeline.
 
   description: |
     PypeIt is a Python package for semi-automated reduction of astronomical,
