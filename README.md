@@ -5,9 +5,13 @@ Home: https://github.com/pypeit/PypeIt
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pypeit-feedstock/blob/master/LICENSE.txt)
 
 Summary: The Python Spectroscopic Data Reduction Pipeline.
+
+Development: https://github.com/pypeit/PypeIt
+
+Documentation: https://pypeit.readthedocs.io/
 
 PypeIt is a Python package for semi-automated reduction of astronomical,
 spectroscopic data. Its algorithms build on decades-long development of
