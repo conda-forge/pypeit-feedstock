@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7e91e051db681c9963c00b82399440ae0f9409a03579e32e4a5067c7956f774a
+  url: https://github.com/pypeit/PypeIt/archive/{{ version }}.tar.gz
+  sha256: b22e2d940caa1813a9fec9efa9c7c9f0e57d07643a987a574fbf597e89c5ef3b
 
 build:
   number: 0
