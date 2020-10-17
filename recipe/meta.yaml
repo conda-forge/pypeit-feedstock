@@ -38,6 +38,8 @@ requirements:
     - linetools >=0.3.dev2147
     - extension-helpers >=0.1
     - pytest >=3.0.7
+    - shapely >=1.7.1
+    - requests >=2.23
 
 
 test:
