@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.1.1" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/pypeit/PypeIt/archive/{{ version }}.tar.gz
-  sha256: 9264c904e098c40c44e815d34d594305862a4c4fd0001c3ed81d24f706960ebf
+  sha256: b22e2d940caa1813a9fec9efa9c7c9f0e57d07643a987a574fbf597e89c5ef3b
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
-  skip: True  # [py<37 or win]
+  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [py<37]
 
 requirements:
   build:
@@ -23,21 +23,23 @@ requirements:
     - extension-helpers >=0.1
   run:
     - python
-    - numpy >=1.16.0
+    - numpy >=1.18
     - astropy >=4.0
     - scipy >=1.4
     - matplotlib-base >=3.1
     - numba >=0.39.0
-    - pyqt >=5
+    - pyqt >=5.12
     - pyyaml >=5.1
     - configobj >=5.0.6
     - scikit-learn >=0.20
     - ipython >=7.2.0
     - ginga >=3.0
     - packaging >=19.0
-    - linetools >=0.3.dev2147
+    - linetools >=0.3.dev2206
     - extension-helpers >=0.1
     - pytest >=3.0.7
+    - shapely >=1.7.1
+    - requests >=2.23
 
 
 test:
@@ -47,10 +49,9 @@ test:
     - pypeit/tests/files/*
   commands:
     - run_pypeit -h
-    - mkdir -p $(python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))")
-    - cp -R pypeit/tests/files/* $(python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))")
+    - python -c "import os; import pypeit; import shutil; shutil.copytree(os.path.join('pypeit', 'tests', 'files'), os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"
     - pytest --pyargs {{ name }}
-    - rm -rf $(python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))")
+    - python -c "import os; import pypeit; import shutil; shutil.rmtree(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"
 
 about:
   home: https://github.com/pypeit/PypeIt
@@ -59,7 +60,7 @@ about:
   license_file:
     - LICENSE.rst
     - licenses/PYDL_LICENSE.rst
-  summary: 'The Python Spectroscopic Data Reduction Pipeline.'
+  summary: The Python Spectroscopic Data Reduction Pipeline.
 
   description: |
     PypeIt is a Python package for semi-automated reduction of astronomical,
