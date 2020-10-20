@@ -35,7 +35,7 @@ requirements:
     - ipython >=7.2.0
     - ginga >=3.0
     - packaging >=19.0
-    - linetools >=0.3.dev2147
+    - linetools >=0.3.dev2199
     - extension-helpers >=0.1
     - pytest >=3.0.7
     - shapely >=1.7.1
