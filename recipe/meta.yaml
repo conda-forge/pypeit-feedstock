@@ -49,13 +49,13 @@ test:
     - pypeit/tests/files/*
   commands:
     - run_pypeit -h
-    - mkdir -p $(python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))") # [not win]
-    - for /f "usebackq tokens=*" %%a in (`python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"`) do mkdir %%a #[win]
-    - cp -R pypeit/tests/files/* $(python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))") # [not win]
-    - for /f "usebackq tokens=*" %%a in (`python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"`) do xcopy /s/e pypeit\tests\files\ %%a #[win]
+    - mkdir -p $(python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))")  # [not win]
+    - for /f "usebackq tokens=*" %%a in (`python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"`) do mkdir %%a  # [win]
+    - cp -R pypeit/tests/files/* $(python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))")  # [not win]
+    - for /f "usebackq tokens=*" %%a in (`python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"`) do xcopy /s/e pypeit\tests\files\ %%a  # [win]
     - pytest --pyargs {{ name }}
-    - rm -rf $(python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))") # [not win]
-    - for /f "usebackq tokens=*" %%a in (`python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"`) do rd /s/q %%a #[win]
+    - rm -rf $(python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))")  # [not win]
+    - for /f "usebackq tokens=*" %%a in (`python -c "import pypeit; import os; print(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"`) do rd /s/q %%a  # [win]
 
 about:
   home: https://github.com/pypeit/PypeIt
