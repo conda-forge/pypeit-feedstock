@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.2.0" %}
+{% set version = "1.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/pypeit/PypeIt/archive/{{ version }}.tar.gz
-  sha256: b22e2d940caa1813a9fec9efa9c7c9f0e57d07643a987a574fbf597e89c5ef3b
+  sha256: 100f613f63d074849fbf322f94ee1b8a67a7cbcaba9a5d839a45f63c1aa794c0
 
 build:
   number: 0
