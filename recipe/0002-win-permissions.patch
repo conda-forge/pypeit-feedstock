@@ -1,0 +1,20 @@
+diff --git a/pypeit/spec2dobj.py b/pypeit/spec2dobj.py
+index 45e090518..a3ca605e6 100644
+--- a/pypeit/spec2dobj.py
++++ b/pypeit/spec2dobj.py
+@@ -114,6 +114,7 @@ class Spec2DObj(datamodel.DataContainer):
+         #
+         slf = super(Spec2DObj, cls).from_hdu(hdul, hdu_prefix=spec2d_hdu_prefix(det), chk_version=chk_version)
+         slf.head0 = hdul[0].header
++        hdul.close()
+         return slf
+ 
+     def __init__(self, det, sciimg, ivarraw, skymodel, objmodel, ivarmodel,
+@@ -277,6 +278,7 @@ class AllSpec2DObj(object):
+             slf[det] = obj
+         # Header
+         slf['meta']['head0'] = hdul[0].header
++        hdul.close()
+         return slf
+ 
+     def __init__(self):
