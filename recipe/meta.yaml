@@ -41,11 +41,10 @@ requirements:
     - extension-helpers >=0.1
     - shapely >=1.7.1
     - requests >=2.23
-  tests:
-    - pytest >=6.0
-
 
 test:
+  requires:
+    - pytest
   imports:
     - pypeit
   source_files:
