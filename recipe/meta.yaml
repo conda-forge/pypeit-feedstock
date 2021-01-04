@@ -41,8 +41,8 @@ requirements:
     - extension-helpers >=0.1
     - shapely >=1.7.1
     - requests >=2.23
-  test:
-    - pytest >= 6.0
+  tests:
+    - pytest >=6.0
 
 
 test:
