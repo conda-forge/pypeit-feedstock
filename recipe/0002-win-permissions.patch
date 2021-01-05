@@ -1,20 +1,24 @@
-diff --git a/pypeit/spec2dobj.py b/pypeit/spec2dobj.py
-index 45e090518..a3ca605e6 100644
+diff --cc pypeit/spec2dobj.py
+index 45e090518,b65d3c2be..000000000
 --- a/pypeit/spec2dobj.py
 +++ b/pypeit/spec2dobj.py
-@@ -114,6 +114,7 @@ class Spec2DObj(datamodel.DataContainer):
-         #
-         slf = super(Spec2DObj, cls).from_hdu(hdul, hdu_prefix=spec2d_hdu_prefix(det), chk_version=chk_version)
-         slf.head0 = hdul[0].header
-+        hdul.close()
-         return slf
- 
-     def __init__(self, det, sciimg, ivarraw, skymodel, objmodel, ivarmodel,
-@@ -277,6 +278,7 @@ class AllSpec2DObj(object):
-             slf[det] = obj
-         # Header
-         slf['meta']['head0'] = hdul[0].header
-+        hdul.close()
-         return slf
- 
-     def __init__(self):
+@@@ -107,7 -107,7 +107,7 @@@ class Spec2DObj(datamodel.DataContainer
+              `Spec2DObj`:
+  
+          """
+-         hdul = io.fits_open(file)
+ -        hdul = fits.open(file, memmap=False)
+++        hdul = io.fits_open(file, memmap=False)
+          # Quick check on det
+          if not np.any(['DET{:02d}'.format(det) in hdu.name for hdu in hdul]):
+              msgs.error("Requested detector {} is not in this file - {}".format(det, file))
+@@@ -264,7 -261,7 +264,7 @@@ class AllSpec2DObj(object)
+          # Instantiate
+          slf = cls()
+          # Open
+-         hdul = io.fits_open(filename)
+ -        hdul = fits.open(filename, memmap=False)
+++        hdul = io.fits_open(filename, memmap=False)
+          # Meta
+          hkeys = list(hdul[0].header.keys())
+          for key in hkeys:
