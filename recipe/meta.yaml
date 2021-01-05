@@ -10,7 +10,7 @@ source:
   sha256: 1ff156fceb5c76cf5f0bd7eabb87e7deadecc3c9455d1a2731206c31ce7a6ee9
   patches:
     - 0001-remove-pyside2-from-requirements.patch
-    - 0002-win-permissions.patch # [win]
+    - 0002-win-permissions.patch  # [win]
 
 build:
   number: 0
