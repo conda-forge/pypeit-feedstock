@@ -1,22 +1,26 @@
-diff --git a/pypeit/spec2dobj.py b/pypeit/spec2dobj.py
-index 45e090518..885926c0d 100644
---- a/pypeit/spec2dobj.py
-+++ b/pypeit/spec2dobj.py
-@@ -107,7 +107,7 @@ class Spec2DObj(datamodel.DataContainer):
-             `Spec2DObj`:
+From 163d04af15a6e937eba1bebbaa7194edcab93768 Mon Sep 17 00:00:00 2001
+From: Milan Roberson <finagle29@gmail.com>
+Date: Thu, 7 Jan 2021 11:53:56 -0800
+Subject: [PATCH] fix Windows permissions error when trying to update a
+ Spec2DObj file that contains an astropy Table
+
+---
+ pypeit/datamodel.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pypeit/datamodel.py b/pypeit/datamodel.py
+index 95707675a..1c9352577 100644
+--- a/pypeit/datamodel.py
++++ b/pypeit/datamodel.py
+@@ -946,7 +946,7 @@ class DataContainer:
+                     dm_version_passed &= hdu[hduindx].header['DMODVER'] == cls.version
+                     # Grab it
+                     _d[e] = _hdu[hduindx].data if isinstance(hdu[hduindx], fits.ImageHDU) \
+-                        else Table.read(hdu[hduindx])
++                        else Table.read(hdu[hduindx]).copy()
  
-         """
--        hdul = io.fits_open(file)
-+        hdul = io.fits_open(file, memmap=False)
-         # Quick check on det
-         if not np.any(['DET{:02d}'.format(det) in hdu.name for hdu in hdul]):
-             msgs.error("Requested detector {} is not in this file - {}".format(det, file))
-@@ -264,7 +264,7 @@ class AllSpec2DObj(object):
-         # Instantiate
-         slf = cls()
-         # Open
--        hdul = io.fits_open(filename)
-+        hdul = io.fits_open(filename, memmap=False)
-         # Meta
-         hkeys = list(hdul[0].header.keys())
-         for key in hkeys:
+         for e in _ext:
+             if 'DMODCLS' not in _hdu[e].header.keys() or 'DMODVER' not in _hdu[e].header.keys() \
+-- 
+2.29.2
+
