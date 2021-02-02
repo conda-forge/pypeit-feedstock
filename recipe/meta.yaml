@@ -21,7 +21,7 @@ requirements:
     - python
     - pip
     - extension-helpers >=0.1
-    - setuptools_scm >= 5
+    - setuptools_scm >=5
   run:
     - python
     - numpy >=1.18
@@ -29,7 +29,7 @@ requirements:
     - scipy >=1.4
     - matplotlib-base >=3.1
     - numba >=0.39.0
-    - qtpy >= 1.9
+    - qtpy >=1.9
     - pyyaml >=5.1
     - configobj >=5.0.6
     - scikit-learn >=0.20
