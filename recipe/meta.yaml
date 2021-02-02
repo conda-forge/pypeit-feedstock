@@ -8,9 +8,6 @@ package:
 source:
   url: https://github.com/pypeit/PypeIt/archive/{{ version }}.tar.gz
   sha256: d9203668ab0f0a51966c1d3f41b3235c18942ce120114f83cac653ce4b95a097
-  patches:
-    - 0001-remove-pyside2-from-requirements.patch
-    - 0002-win-permissions.patch  # [win]
 
 build:
   number: 0
