@@ -1,13 +1,13 @@
 {% set name = "pypeit" %}
-{% set version = "1.3.1" %}
+{% set version = "1.3.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/pypeit/PypeIt/archive/{{ version }}.tar.gz
-  sha256: d9203668ab0f0a51966c1d3f41b3235c18942ce120114f83cac653ce4b95a097
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: a2a7082cd905dec2713dc53b0382a1f02a26ca115d451bff58c1e92bb4bca6d8
 
 build:
   number: 0
@@ -36,7 +36,7 @@ requirements:
     - ipython >=7.2.0
     - ginga >=3.0
     - packaging >=19.0
-    - linetools >=0.3.dev2206
+    - linetools >=0.3.dev2231
     - extension-helpers >=0.1
     - shapely >=1.7.1
     - requests >=2.23
@@ -46,13 +46,9 @@ test:
     - pytest
   imports:
     - pypeit
-  source_files:
-    - pypeit/tests/files/*
   commands:
     - run_pypeit -h
-    - python -c "import os; import pypeit; import shutil; shutil.copytree(os.path.join('pypeit', 'tests', 'files'), os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"
     - pytest --pyargs {{ name }}
-    - python -c "import os; import pypeit; import shutil; shutil.rmtree(os.path.join(os.path.dirname(pypeit.__file__), 'tests', 'files'))"
 
 about:
   home: https://github.com/pypeit/PypeIt
