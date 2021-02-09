@@ -71,6 +71,7 @@ requirements:
     - ginga >=3.0
     - packaging >=19.0
     - linetools >=0.3.dev2231
+    - extension-helpers >=0.1
     - shapely >=1.7.1
     - requests >=2.23
 
