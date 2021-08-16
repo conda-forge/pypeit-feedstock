@@ -70,13 +70,13 @@ requirements:
     - packaging >=19.0
     - linetools >=0.3.dev2231
     - extension-helpers >=0.1
-    - shapely >=1.7.1
+    - shapely >=1.7
     - requests >=2.23
     - bottleneck >=1.2
 
 test:
   requires:
-    - pytest
+    - pytest >= 6
   imports:
     - pypeit
   commands:
