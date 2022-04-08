@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [py<37 or py>39]
+  skip: true  # [py<38 or py>39]
   entry_points:
     - pypeit_parse_slits = pypeit.scripts.parse_slits:ParseSlits.entry_point
     - pypeit_chk_for_calibs = pypeit.scripts.chk_for_calibs:ChkForCalibs.entry_point
