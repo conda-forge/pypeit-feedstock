@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.8.0" %}
+{% set version = "1.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3ea543a1f3bbe041bba86652ca254959445a9a2e48239a88124596a59abfada1
+  sha256: aa97267c59de7a06cf66e515663578642ba1e20b6b436b0581abd52944ac2d2c
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [py<37 or py>39]
+  skip: true  # [py<38 or py>39]
   entry_points:
     - pypeit_parse_slits = pypeit.scripts.parse_slits:ParseSlits.entry_point
     - pypeit_chk_for_calibs = pypeit.scripts.chk_for_calibs:ChkForCalibs.entry_point
