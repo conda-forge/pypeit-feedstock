@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.8.1" %}
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: aa97267c59de7a06cf66e515663578642ba1e20b6b436b0581abd52944ac2d2c
+  sha256: 2d055d310de7eb4f7b780267221330f2fe913c54db971f67d971ce7e7e14fc29
 
 build:
   number: 0
@@ -77,6 +77,7 @@ requirements:
     - shapely >=1.7
     - requests >=2.23
     - bottleneck >=1.2
+    - pygithub
 
 test:
   requires:
