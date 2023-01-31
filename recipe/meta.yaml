@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.10.0" %}
+{% set version = "1.11.0" %}
 
 
 package:
@@ -8,7 +8,9 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f15db4f79b9a2e355b8a538f0470be33db448ebffcc526e4965eade70cd43cd8
+  sha256: e1949daf8008de182bf97de3e0e435af293c45e41dc411de657cd4327e94c1f6
+  patches:
+    - 0001-allow-python-3.10.patch
 
 
 build:
@@ -16,20 +18,25 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<38 or py>310]
   entry_points:
-    - pypeit_parse_slits = pypeit.scripts.parse_slits:ParseSlits.entry_point
+    - pypeit_cache_github_data = pypeit.scripts.cache_github_data:CacheGithubData.entry_point
     - pypeit_chk_for_calibs = pypeit.scripts.chk_for_calibs:ChkForCalibs.entry_point
+    - pypeit_chk_noise_1dspec = pypeit.scripts.chk_noise_1dspec:ChkNoise1D.entry_point
+    - pypeit_chk_noise_2dspec = pypeit.scripts.chk_noise_2dspec:ChkNoise2D.entry_point
     - pypeit_coadd_1dspec = pypeit.scripts.coadd_1dspec:CoAdd1DSpec.entry_point
     - pypeit_coadd_2dspec = pypeit.scripts.coadd_2dspec:CoAdd2DSpec.entry_point
     - pypeit_coadd_datacube = pypeit.scripts.coadd_datacube:CoAddDataCube.entry_point
     - pypeit_collate_1d = pypeit.scripts.collate_1d:Collate1D.entry_point
     - pypeit_flux_calib = pypeit.scripts.flux_calib:FluxCalib.entry_point
     - pypeit_flux_setup = pypeit.scripts.flux_setup:FluxSetup.entry_point
+    - pypeit_install_extinctfile = pypeit.scripts.install_extinctfile:InstallExtinctfile.entry_point
+    - pypeit_install_linelist = pypeit.scripts.install_linelist:InstallLinelist.entry_point
     - pypeit_install_ql_masters = pypeit.scripts.install_ql_masters:InstallQLMasters.entry_point
     - pypeit_install_telluric = pypeit.scripts.install_telluric:InstallTelluric.entry_point
     - pypeit_lowrdx_skyspec = pypeit.scripts.lowrdx_skyspec:LowRDXSkySpec.entry_point
     - pypeit_multislit_flexure = pypeit.scripts.multislit_flexure:MultiSlitFlexure.entry_point
     - pypeit_obslog = pypeit.scripts.obslog:ObsLog.entry_point
     - pypeit_parse_calib_id = pypeit.scripts.parse_calib_id:ParseCalibID.entry_point
+    - pypeit_parse_slits = pypeit.scripts.parse_slits:ParseSlits.entry_point
     - pypeit_qa_html = pypeit.scripts.qa_html:QAHtml.entry_point
     - pypeit_ql_keck_deimos = pypeit.scripts.ql_keck_deimos:QLKeckDEIMOS.entry_point
     - pypeit_ql_keck_nires = pypeit.scripts.ql_keck_nires:QLKeckNIRES.entry_point
@@ -47,7 +54,7 @@ build:
     - pypeit_chk_wavecalib = pypeit.scripts.chk_wavecalib:ChkWaveCalib.entry_point
     - pypeit_compare_sky = pypeit.scripts.compare_sky:CompareSky.entry_point
     - pypeit_identify = pypeit.scripts.identify:Identify.entry_point
-    - pypeit_ql_keck_mosfire = pypeit.scripts.ql_keck_mosfire:QLKeckMOSFIRE.entry_point
+    - pypeit_ql_multislit = pypeit.scripts.ql_multislit:QL_MOS.entry_point
     - pypeit_show_1dspec = pypeit.scripts.show_1dspec:Show1DSpec.entry_point
     - pypeit_show_2dspec = pypeit.scripts.show_2dspec:Show2DSpec.entry_point
     - pypeit_skysub_regions = pypeit.scripts.skysub_regions:SkySubRegions.entry_point
@@ -63,17 +70,17 @@ requirements:
     - setuptools_scm >=5
   run:
     - python
-    - numpy >=1.18
-    - astropy >=4.0
-    - scipy >=1.4
-    - matplotlib-base >=3.1
+    - numpy >=1.19,<1.24
+    - astropy >=4.3
+    - scipy >=1.6
+    - matplotlib-base >=3.3
     - qtpy >=1.9
     - pyyaml >=5.1
     - configobj >=5.0.6
-    - scikit-learn >=0.20
-    - ipython >=7.2.0
+    - scikit-learn >=1.0
+    - ipython >=7.10.0
     - ginga >=3.0
-    - packaging >=19.0
+    - packaging >=0.19
     - linetools >=0.3.dev2231
     - extension-helpers >=0.1
     - shapely >=1.7
