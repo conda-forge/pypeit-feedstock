@@ -10,13 +10,13 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: e1949daf8008de182bf97de3e0e435af293c45e41dc411de657cd4327e94c1f6
   patches:
-    - 0001-allow-python-3.10.patch
+    - 0001-allow-python-3.11.patch
 
 
 build:
   number: 1
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [py<38 or py>310]
+  skip: true  # [py<38 or py>311]
   entry_points:
     - pypeit_cache_github_data = pypeit.scripts.cache_github_data:CacheGithubData.entry_point
     - pypeit_chk_for_calibs = pypeit.scripts.chk_for_calibs:ChkForCalibs.entry_point
