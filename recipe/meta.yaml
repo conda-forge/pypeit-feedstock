@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.11.0" %}
+{% set version = "1.12.0" %}
 
 
 package:
@@ -8,13 +8,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e1949daf8008de182bf97de3e0e435af293c45e41dc411de657cd4327e94c1f6
+  sha256: 96275339d9e119420e1395b790c5038329eeb82cde7c0fcf4a2e467b08b69b32
   patches:
     - 0001-allow-python-3.11.patch
 
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<38 or py>311]
   entry_points:
