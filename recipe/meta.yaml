@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.11.0" %}
+{% set version = "1.12.0" %}
 
 
 package:
@@ -8,13 +8,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e1949daf8008de182bf97de3e0e435af293c45e41dc411de657cd4327e94c1f6
+  sha256: 96275339d9e119420e1395b790c5038329eeb82cde7c0fcf4a2e467b08b69b32
   patches:
     - 0001-allow-python-3.11.patch
 
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<38 or py>311]
   entry_points:
@@ -38,9 +38,8 @@ build:
     - pypeit_parse_calib_id = pypeit.scripts.parse_calib_id:ParseCalibID.entry_point
     - pypeit_parse_slits = pypeit.scripts.parse_slits:ParseSlits.entry_point
     - pypeit_qa_html = pypeit.scripts.qa_html:QAHtml.entry_point
-    - pypeit_ql_keck_deimos = pypeit.scripts.ql_keck_deimos:QLKeckDEIMOS.entry_point
-    - pypeit_ql_keck_nires = pypeit.scripts.ql_keck_nires:QLKeckNIRES.entry_point
-    - pypeit_ql_mos = pypeit.scripts.ql_mos:QLMOS.entry_point
+    - pypeit_ql = pypeit.scripts.ql:QL.entry_point
+    - pypeit_ql_jfh_multislit = pypeit.scripts.ql_multislit:QL_Multislit.entry_point
     - run_pypeit = pypeit.scripts.run_pypeit:RunPypeIt.entry_point
     - pypeit_sensfunc = pypeit.scripts.sensfunc:SensFunc.entry_point
     - pypeit_setup = pypeit.scripts.setup:Setup.entry_point
@@ -70,7 +69,7 @@ requirements:
     - setuptools_scm >=5
   run:
     - python
-    - numpy >=1.19,<1.24
+    - numpy >=1.20,<1.24
     - astropy >=4.3
     - scipy >=1.6
     - matplotlib-base >=3.3
@@ -86,6 +85,7 @@ requirements:
     - shapely >=1.7
     - requests >=2.23
     - bottleneck >=1.2
+    - scikit-image
     - pygithub
 
 test:
