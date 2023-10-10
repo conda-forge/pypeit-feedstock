@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.12.1" %}
+{% set version = "1.12.2" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2d1f8c4fa1828783ccb84ecc5c68cde8f162d26d3f0d0cc04f6ece9cc93220df
+  sha256: 766e022b18391e202298eed79c619fa4e2d1fd132d4c6f4fde45cf16ba5b2eaa
 
 
 build:
@@ -72,7 +72,7 @@ requirements:
     - numpy >=1.20,<1.24
     - astropy >=4.3
     - scipy >=1.6
-    - matplotlib-base >=3.3
+    - matplotlib-base >=3.3,<3.8
     - qtpy >=1.9
     - pyyaml >=5.1
     - configobj >=5.0.6
@@ -82,10 +82,10 @@ requirements:
     - packaging >=0.19
     - linetools >=0.3.dev2231
     - extension-helpers >=0.1
-    - shapely >=1.7
     - requests >=2.23
     - bottleneck >=1.2
     - scikit-image
+    - specutils
     - pygithub
 
 test:
