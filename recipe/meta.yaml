@@ -82,10 +82,10 @@ requirements:
     - packaging >=0.19
     - linetools >=0.3.dev2231
     - extension-helpers >=0.1
-    - shapely >=1.7
     - requests >=2.23
     - bottleneck >=1.2
     - scikit-image
+    - specutils
     - pygithub
 
 test:
