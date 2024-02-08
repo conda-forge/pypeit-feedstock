@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.12.2" %}
+{% set version = "1.15.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 766e022b18391e202298eed79c619fa4e2d1fd132d4c6f4fde45cf16ba5b2eaa
+  sha256: e794cd1c8fa1313c7db180431748d034a640f39c5df0905e334c20d021677cb8
 
 
 build:
