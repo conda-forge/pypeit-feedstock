@@ -110,7 +110,7 @@ test:
     - pypeit
   commands:
     - run_pypeit -h
-    - pypeit_install_telluric
+    - pypeit_install_telluric TellPCA_3000_26000_R25000.fits
     - pytest --pyargs {{ name }}
 
 about:
