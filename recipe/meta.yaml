@@ -110,6 +110,7 @@ test:
     - pypeit
   commands:
     - run_pypeit -h
+    - pypeit_install_telluric
     - pytest --pyargs {{ name }}
 
 about:
