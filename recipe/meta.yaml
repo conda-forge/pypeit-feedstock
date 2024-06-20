@@ -78,10 +78,10 @@ requirements:
     - setuptools_scm >=5
   run:
     - python
-    - numpy >=1.23 #,<1.24
+    - numpy >=1.23,<2
     - astropy >=6.0
     - scipy >=1.7
-    - matplotlib-base >=3.7 #,<3.8
+    - matplotlib-base >=3.7,<3.10
     - qtpy >=2.0.1
     - pyyaml >=5.1
     - configobj >=5.0.6
@@ -89,7 +89,7 @@ requirements:
     - ipython >=7.10.0
     - ginga >=5.1.0
     - packaging >=0.19
-    - linetools >=0.3.dev2231 # needs to be >=0.3.1
+    - linetools >=0.3.1
     - extension-helpers >=0.1
     # - requests >=2.23
     - bottleneck >=1.2
