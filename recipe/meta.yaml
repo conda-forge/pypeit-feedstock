@@ -96,6 +96,7 @@ requirements:
     - scikit-image
     - specutils >=1.13
     - pygithub
+    - fast-histogram
 
 test:
   requires:
