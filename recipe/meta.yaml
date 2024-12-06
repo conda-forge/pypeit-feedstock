@@ -12,7 +12,7 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<39 or py>310]
   entry_points:
@@ -70,7 +70,7 @@ requirements:
   run:
     - python
     - numpy >=1.20,<1.24
-    - astropy >=4.3
+    - astropy-base >=4.3
     - scipy >=1.6
     - matplotlib-base >=3.3,<3.8
     - qtpy >=1.9
