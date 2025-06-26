@@ -67,7 +67,9 @@ requirements:
     - python
     - pip
     - extension-helpers >=0.1
+    - setuptools
     - setuptools_scm >=5
+    - cython >=0.29.14
   run:
     - python
     - numpy >=1.26
@@ -78,7 +80,7 @@ requirements:
     - matplotlib-base >=3.7
     - pyyaml >=6.0
     - pyerfa >=2.0.0
-    - fast-histogram>=0.11
+    - fast-histogram >=0.11
     - configobj >=5.0.6
     - scikit-learn >=1.2
     - ipython >=8.0
