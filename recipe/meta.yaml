@@ -14,7 +14,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [py<39 or py>310]
+  skip: true  # [py<311 or py>313]
   entry_points:
     - pypeit_cache_github_data = pypeit.scripts.cache_github_data:CacheGithubData.entry_point
     - pypeit_chk_for_calibs = pypeit.scripts.chk_for_calibs:ChkForCalibs.entry_point
@@ -70,28 +70,32 @@ requirements:
     - setuptools_scm >=5
   run:
     - python
-    - numpy >=1.20,<1.24
-    - astropy >=4.3
-    - scipy >=1.6
-    - matplotlib-base >=3.3,<3.8
-    - qtpy >=1.9
-    - pyyaml >=5.1
+    - numpy >=1.26
+    - astropy-base >=6.0
+    - extension-helpers >=1.0
+    - packaging >=22.0
+    - scipy >=1.9
+    - matplotlib-base >=3.7
+    - pyyaml >=6.0
+    - pyerfa >=2.0.0
+    - fast-histogram>=0.11
     - configobj >=5.0.6
-    - scikit-learn >=1.0
-    - ipython >=7.10.0
-    - ginga >=3.0
-    - packaging >=0.19
-    - linetools >=0.3.dev2231
-    - extension-helpers >=0.1
-    - requests >=2.23
-    - bottleneck >=1.2
-    - scikit-image
-    - specutils
+    - scikit-learn >=1.2
+    - ipython >=8.0
+    - ginga >=5.1.0
+    - linetools >=0.3.2
+    - qtpy >=2.2.0
     - pygithub
+    - bottleneck
+    - pyqt6
+    - scikit-image >=0.23
+    - specutils >=1.13
 
 test:
   requires:
-    - pytest >= 6
+    - pygit2
+    - pytest >=7.0.0
+    - pytest-astropy
   imports:
     - pypeit
   commands:
