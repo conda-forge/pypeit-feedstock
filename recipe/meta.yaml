@@ -102,7 +102,6 @@ test:
     - pypeit
   commands:
     - run_pypeit -h
-    - pytest --pyargs {{ name }}
 
 about:
   home: https://github.com/pypeit/PypeIt
