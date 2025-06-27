@@ -89,7 +89,7 @@ requirements:
     - qtpy >=2.2.0
     - pygithub
     - bottleneck
-    - pyqt6
+    - pyqt =6
     - scikit-image >=0.23
     - specutils >=1.13
 
