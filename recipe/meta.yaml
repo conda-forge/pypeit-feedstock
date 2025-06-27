@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.12.2" %}
+{% set version = "1.17.1" %}
 
 
 package:
@@ -7,14 +7,14 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 766e022b18391e202298eed79c619fa4e2d1fd132d4c6f4fde45cf16ba5b2eaa
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: b3cfe5a3ee297fa5fe9782be8846078d5be14da370fedf4ed8f5af6e489e8958
 
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [py<39 or py>310]
+  skip: true  # [py<311 or py>313]
   entry_points:
     - pypeit_cache_github_data = pypeit.scripts.cache_github_data:CacheGithubData.entry_point
     - pypeit_chk_for_calibs = pypeit.scripts.chk_for_calibs:ChkForCalibs.entry_point
@@ -62,40 +62,46 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
     - extension-helpers >=0.1
+    - setuptools
     - setuptools_scm >=5
+    - cython >=0.29.14
   run:
     - python
-    - numpy >=1.20,<1.24
-    - astropy >=4.3
-    - scipy >=1.6
-    - matplotlib-base >=3.3,<3.8
-    - qtpy >=1.9
-    - pyyaml >=5.1
+    - numpy >=1.26
+    - astropy-base >=6.0
+    - extension-helpers >=1.0
+    - packaging >=22.0
+    - scipy >=1.9
+    - matplotlib-base >=3.7
+    - pyyaml >=6.0
+    - pyerfa >=2.0.0
+    - fast-histogram >=0.11
     - configobj >=5.0.6
-    - scikit-learn >=1.0
-    - ipython >=7.10.0
-    - ginga >=3.0
-    - packaging >=0.19
-    - linetools >=0.3.dev2231
-    - extension-helpers >=0.1
-    - requests >=2.23
-    - bottleneck >=1.2
-    - scikit-image
-    - specutils
+    - scikit-learn >=1.2
+    - ipython >=8.0
+    - ginga >=5.1.0
+    - linetools >=0.3.2
+    - qtpy >=2.2.0
     - pygithub
+    - bottleneck
+    - pyside6
+    - scikit-image >=0.23
+    - specutils >=1.13
 
 test:
   requires:
-    - pytest >= 6
+    - pygit2
+    - pytest >=7.0.0
+    - pytest-astropy
   imports:
     - pypeit
   commands:
     - run_pypeit -h
-    - pytest --pyargs {{ name }}
 
 about:
   home: https://github.com/pypeit/PypeIt
