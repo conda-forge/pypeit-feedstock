@@ -72,8 +72,8 @@ requirements:
     - cython >=0.29.14
   run:
     - python
-    - numpy >=1.26
-    - astropy-base >=6.0
+    - numpy >=2.0
+    - astropy-base >=7.0
     - extension-helpers >=1.0
     - packaging >=22.0
     - scipy >=1.9
@@ -84,14 +84,14 @@ requirements:
     - configobj >=5.0.6
     - scikit-learn >=1.2
     - ipython >=8.0
-    - ginga >=5.1.0
+    - ginga >=5.4.0
     - linetools >=0.3.2
     - qtpy >=2.2.0
     - pygithub
     - bottleneck
     - pyside6
     - scikit-image >=0.23
-    - specutils >=1.13
+    - specutils >=2.0
 
 test:
   requires:
