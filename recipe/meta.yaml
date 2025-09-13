@@ -1,5 +1,5 @@
 {% set name = "pypeit" %}
-{% set version = "1.17.4" %}
+{% set version = "1.18.0" %}
 
 
 package:
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e1b141441f436af2d51ffb3e15c0165452025062010fd0e4512d2c8b6b0badb1
+  sha256: 4f1839fe35e97d52cd27ae39e9ecf0fb929b75cb8a01e3bc951e86d9afa8002c
 
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<311 or py>313]
   entry_points:
@@ -72,8 +72,8 @@ requirements:
     - cython >=0.29.14
   run:
     - python
-    - numpy >=1.26
-    - astropy-base >=6.0
+    - numpy >=2.0
+    - astropy-base >=7.0
     - extension-helpers >=1.0
     - packaging >=22.0
     - scipy >=1.9
@@ -84,14 +84,14 @@ requirements:
     - configobj >=5.0.6
     - scikit-learn >=1.2
     - ipython >=8.0
-    - ginga >=5.1.0
+    - ginga >=5.4.0
     - linetools >=0.3.2
     - qtpy >=2.2.0
     - pygithub
     - bottleneck
     - pyside6
     - scikit-image >=0.23
-    - specutils >=1.13
+    - specutils >=2.0
 
 test:
   requires:
