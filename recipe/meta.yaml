@@ -92,7 +92,7 @@ requirements:
     - pyside6
     - scikit-image >=0.23
     - specutils >=2.0
-    - "setuptools<81"    # Keep until we deprecate linetools
+    - "setuptools <81"    # Keep until we deprecate linetools
 
 test:
   requires:
